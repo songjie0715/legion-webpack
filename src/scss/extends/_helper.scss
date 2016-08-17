@@ -1,0 +1,57 @@
+.hidden {
+  display: none!important;
+  visibility: hidden!important;
+}
+
+.hidden-scroll {
+  overflow: hidden!important;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.ac {
+  text-align: center;
+}
+.al {
+  text-align: left;
+}
+
+.ar {
+  text-align: right;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.table-layout {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.csv-textarea {
+  line-height: 1.8rem;
+  @extend .font-size-12px;
+}
+
+.vm-grid {
+  @include display(flex);
+  @include flex-flow(row);
+  @include align-items(center);
+  @include justify-content(center);
+  .f1 {
+    @include flex(1);
+  }
+}
+
+.grid {
+  @include display(flex);
+  @include flex-flow(row);
+  .f1 {
+    @include flex(1);
+  }
+}
+

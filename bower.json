@@ -1,0 +1,23 @@
+{
+  "name": "bi",
+  "authors": [
+    "Yinxiong <zhangyinxiong@wifipix.com>",
+    "Jabbar <jiahua@wifipix.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

@@ -1,0 +1,16 @@
+.file-uploader {
+  .progress {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+    height: 10px;
+  }
+  .control {
+    a {
+      margin-right: 5px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

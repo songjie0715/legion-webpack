@@ -1,0 +1,72 @@
+.rectangle-select-handle {
+    position: absolute;
+    box-sizing: border-box;
+    background:rgba(94, 166, 243, 0.509804);
+    cursor: move;
+    box-shadow: 0 0 0 1px rgba(86, 140, 167, 0.639216);
+    @include transition(background .5s ease);
+    &.error {
+        background: rgba(251, 83, 83, 0.3);
+        box-shadow: 0 0 0 1px rgba(195, 75, 75, 0.72);
+    }
+}
+
+.rectangle-select-overlay {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2000;
+    background:rgba(0,0,0,.7);
+    cursor: default;
+}
+
+.rectangle-select-size {
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: Arial;
+}
+
+.rectangle-select-confirm {
+    display: none;
+    position: absolute;
+
+    font-size: 1.2rem;
+    button, label, input {
+        vertical-align: top;
+    }
+    label {
+        padding: 0 5px;
+        color: #999;
+    }
+    label, input {
+        display: inline-block;
+        background: #fff;
+        height: 30px;
+        line-height: 30px;
+    }
+    button {
+        display: inline-block;
+        height: 30px;
+        width: 50px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        background: #368ADC;
+        &:active {
+            box-shadow: inset 0 1px 3px 0 #666;
+        }
+    }
+    input {
+        width: 30px;
+        border: none;
+        outline: none;
+        line-height: 32px;
+    }
+}
