@@ -36,7 +36,7 @@ const productPort = 9192;
 
 module.exports = {
 	entry: {
-		client: './src/js/controllers/client.js'
+		client: './src/js/entry/client.js'
 	},
 	build: {
 		assetsRoot: path.resolve(__dirname, 'dist'),
