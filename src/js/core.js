@@ -278,3 +278,5 @@ core.code = function (content, defaultValue) {
 	}
 	return content;
 };
+
+export default core;

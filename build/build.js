@@ -2,16 +2,17 @@
 require('shelljs/global');
 env.NODE_ENV = 'production';
 
-var path = require('path');
-var config = require('../config');
-var ora = require('ora');
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.prod.conf');
+const path = require('path');
+const config = require('../config');
+const ora = require('ora');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.prod.conf');
+const exec = require('child_process').exec;
 
-var spinner = ora('building for production...');
+const spinner = ora('building for production...');
 spinner.start();
 
-var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory);
+const assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory);
 rm('-rf', assetsPath);
 mkdir('-p', assetsPath);
 
@@ -26,4 +27,8 @@ webpack(webpackConfig, function (err, stats) {
 			chunkModules: false
 		}) + '\n');
 	mv(path.join(config.build.assetsRoot, 'common.js'), assetsPath);
+
+    exec('npm run-script rev', {cwd: path.join(__dirname, '../')}, function(err, stdout, stderr){
+        console.log(err)
+    })
 });
