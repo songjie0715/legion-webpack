@@ -35,6 +35,9 @@ const devPort = 9191;
 const productPort = 9192;
 
 module.exports = {
+    srcDir: './src',
+    distDir: './dist',
+    buildDir: './src/build',
 	entry: {
 		client: './src/js/entry/client.js'
 	},

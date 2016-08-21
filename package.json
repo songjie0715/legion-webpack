@@ -8,7 +8,7 @@
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "sass": "gulp",
-    "rev": "gulp rev",
+    "rev": "gulp build",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "engines": {
