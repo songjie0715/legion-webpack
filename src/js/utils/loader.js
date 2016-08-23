@@ -5,7 +5,7 @@
 import $script from 'scriptjs';
 import Promise from 'bluebird';
 import core from 'src/core';
-import paths from 'src/config/paths';
+import paths from '../const/paths';
 import _ from 'lodash';
 
 const prefix = core.STATIC_PATH;
