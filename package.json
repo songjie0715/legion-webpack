@@ -7,6 +7,8 @@
     "build": "node build/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
+    "sass": "gulp",
+    "rev": "gulp build",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "engines": {
@@ -50,8 +52,10 @@
     "function-bind": "^1.0.2",
     "gulp": "^3.9.0",
     "gulp-clean-css": "^2.0.11",
+    "gulp-livereload": "^3.8.1",
     "gulp-rev": "^7.0.0",
     "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gutil": "^1.6.4",
     "html-webpack-plugin": "^2.8.1",
