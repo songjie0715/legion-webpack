@@ -25,3 +25,24 @@
   margin: 0;
   padding: 0;
 }
+
+%mod {
+  &, .hd, .bd {
+    position: relative;
+  }
+}
+
+%f1 {
+  @include flex(1);
+}
+
+%grid {
+  @include display(flex);
+  @include flex-flow(row);
+}
+
+%vm-grid {
+  @extend %grid;
+  @include align-items(center);
+  @include justify-content(center);
+}

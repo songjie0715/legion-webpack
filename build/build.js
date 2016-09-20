@@ -13,7 +13,10 @@ const spinner = ora('building for production...');
 spinner.start();
 
 const assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory);
-rm('-rf', assetsPath);
+const buildPath = path.join(config.buildDir, config.build.assetsSubDirectory);
+
+rm('-rf', buildPath);
+// rm('-rf', assetsPath);
 mkdir('-p', assetsPath);
 
 webpack(webpackConfig, function (err, stats) {
@@ -28,7 +31,10 @@ webpack(webpackConfig, function (err, stats) {
 		}) + '\n');
 	mv(path.join(config.build.assetsRoot, 'common.js'), assetsPath);
 
-    exec('npm run-script rev', {cwd: path.join(__dirname, '../')}, function(err, stdout, stderr){
-        console.log(err)
+    exec('npm run-script rev', {cwd: path.join(__dirname, '../')}, function(err){
+		if(err) throw err;
+		exec('npm run-script rev', {cwd: path.join(__dirname, '../')}, function (err) {
+			if(err) throw err;
+		});
     })
 });
