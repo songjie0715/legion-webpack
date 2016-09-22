@@ -23,6 +23,33 @@ const file = new nodeStatic.Server('./', {
 const cssPath = `${config.srcDir}/scss`;
 const jsPath = `${config.srcDir}/js/entry`;
 
+const swigDefaults = {
+    defaults: {
+        cache: false,
+        varControls: ['<%', '%>'],
+        locals: {
+            version: +(new Date)
+        }
+    }
+};
+
+const devLocals = _.merge({}, swigDefaults, {
+    defaults: {
+        locals: {
+            static: '/'
+        }
+    }
+});
+
+const buildLocals = _.merge({}, swigDefaults, {
+    defaults: {
+        locals: {
+            static: ''
+        }
+    }
+});
+
+
 function readCss(cssPath){
 	let arr = [];
 	_.forEach(fs.readdirSync(cssPath), (f)=>{
@@ -117,6 +144,17 @@ gulp.task('generateProdManifest', ()=>{
 	});
 });
 
+gulp.task('swig', function () {
+    return gulp.src(`${config.srcDir}/views/*.html`)
+        .pipe(swig(devLocals))
+        .pipe(gulp.dest(`${config.distDir}/views`))
+});
+
+gulp.task('swig:build', ()=>{
+    return gulp.src(`${config.srcDir}/views/*.html`)
+        .pipe(swig(buildLocals))
+        .pipe(gulp.dest(`${config.distDir}/views`))
+});
 
 gulp.task('rev', function(){
     return gulp.src([config.buildDir+'/css/*.css', config.buildDir+'/js/*.js'],{base: config.buildDir})
