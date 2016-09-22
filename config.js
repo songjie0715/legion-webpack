@@ -53,5 +53,8 @@ module.exports = {
 	},
 	product: {
 		port: productPort
-	}
+	},
+	manifest: 'rev-manifest.json',
+	jspManifestProd: 'D:/IdeaProjects/wifipix-bi-web/src/main/webapp/WEB-INF/views/common/inc/_manifest_prod.jsp',
+	jspManifestDev: 'D:/IdeaProjects/wifipix-bi-web/src/main/webapp/WEB-INF/views/common/inc/_manifest_dev.jsp'
 };
