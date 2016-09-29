@@ -29,7 +29,7 @@ webpack(webpackConfig, function (err, stats) {
 			chunks: false,
 			chunkModules: false
 		}) + '\n');
-	mv(path.join(config.build.assetsRoot, 'common.js'), assetsPath);
+	mv(path.join(config.build.assetsRoot, 'vendor-bundle.js'), assetsPath);
 
     exec('npm run-script rev', {cwd: path.join(__dirname, '../')}, function(err){
 		if(err) throw err;

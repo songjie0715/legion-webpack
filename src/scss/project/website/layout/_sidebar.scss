@@ -1,0 +1,83 @@
+.primary-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $sidebar-width;
+  background: $sidebar-bg;
+  .logo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: $main-color;
+  }
+
+  .nav-list {
+    @extend .font-size-14px;
+    > .nav-item {
+      border-left: $sidebar-openMenu-border-width solid transparent;
+    }
+  }
+
+  .nav-category {
+    padding: $spacing-bigger $spacing $spacing;
+    @extend .font-size-16px;
+    color: $sidebar-category-color;
+  }
+
+  .nav-item > a {
+    position: relative;
+    display: block;
+    padding: $spacing-small $spacing;
+    color: $sidebar-color;
+  }
+
+  .nav-icon {
+    width: $sidebar-icon-width;
+  }
+
+  .nav-list > .nav-open {
+    border-left-color: $sidebar-openMenu-border-color;
+    background: $sidebar-openMenu-bg;
+    > a {
+      color: #fff;
+    }
+  }
+
+  .nav-open {
+    > a::after {
+      @include transform(rotate(90deg));
+    }
+    > .nav-sub-list {
+      display: block;
+      a {
+        padding-left: $spacing + 30px;
+      }
+    }
+  }
+
+  .nav-group > a {
+    &::after {
+      content: "\f105";
+      font-family: FontAwesome;
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      display: block;
+      width: 15px;
+      height: 15px;
+      line-height: 1;
+      font-size: 16px;
+      text-align: center;
+      color: #888;
+      @include transition(transform .2s ease);
+    }
+  }
+
+  .nav-sub-list {
+    display: none;
+    a {
+      @extend .font-size-12px;
+    }
+  }
+}

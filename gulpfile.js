@@ -22,6 +22,45 @@ const file = new nodeStatic.Server('./', {
 
 const cssPath = `${config.srcDir}/scss`;
 const jsPath = `${config.srcDir}/js/entry`;
+const viewPath = `${config.srcDir}/views`;
+
+const swigDefaults = {
+    defaults: {
+        cache: false,
+        varControls: ['<%', '%>'],
+        locals: {
+            version: +(new Date)
+        }
+    }
+};
+
+const devLocals = _.merge({}, swigDefaults, {
+    defaults: {
+        locals: {
+            static: '/'
+        }
+    }
+});
+
+const buildLocals = _.merge({}, swigDefaults, {
+    defaults: {
+        locals: {
+            static: ''
+        }
+    }
+});
+
+gulp.task('swig', function () {
+    return gulp.src(`${viewPath}/*.html`)
+        .pipe(swig(devLocals))
+        .pipe(gulp.dest(`${config.distDir}/views`))
+});
+
+gulp.task('swig:build', function () {
+    return gulp.src(`${config.srcDir}/views/*.html`)
+        .pipe(swig(buildLocals))
+        .pipe(gulp.dest(`${config.distDir}/views`))
+});
 
 function readCss(cssPath){
 	let arr = [];
@@ -63,15 +102,24 @@ gulp.task('sass', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(config.distDir + '/css/'))
-		.pipe(clean())
 		.pipe(gulp.dest(config.buildDir + '/css/'))
+        .pipe(livereload());
+});
+
+gulp.task('clean:css', function(){
+    return gulp.src(config.srcDir + '/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(clean())
+        .pipe(gulp.dest(config.distDir + '/css/'))
 });
 
 gulp.task('watch', function () {
     livereload.listen({
         start: true
     });
-	gulp.watch(config.srcDir+'/scss/**/*.scss', ['sass']);
+	gulp.watch(`${config.srcDir}/scss/**/*.scss`, ['sass']);
+    gulp.watch(`${viewPath}/**/*.html`, ['swig']);
 });
 
 gulp.task('server', function () {
@@ -119,7 +167,7 @@ gulp.task('generateProdManifest', ()=>{
 
 
 gulp.task('rev', function(){
-    return gulp.src([config.buildDir+'/css/*.css', config.buildDir+'/js/*.js'],{base: config.buildDir})
+    return gulp.src([`${config.buildDir}/css/*.css`, `${config.buildDir}/js/*.js`],{base: config.buildDir})
         .pipe(gulp.dest(config.distDir))
         .pipe(rev())
         .pipe(gulp.dest(config.distDir))
@@ -129,9 +177,9 @@ gulp.task('rev', function(){
         .pipe(gulp.dest(config.distDir))
 });
 
-gulp.task('build', ['rev']);
+gulp.task('build', ['clean:css', 'rev']);
 
-gulp.task('compile', ['watch', 'sass']);
+gulp.task('compile', ['watch', 'sass', 'swig']);
 
 gulp.task('default', ['compile', 'server']);
 
