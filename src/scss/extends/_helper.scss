@@ -1,0 +1,49 @@
+.hidden-scroll {
+  overflow: hidden!important;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.ac {
+  text-align: center;
+}
+.al {
+  text-align: left;
+}
+
+.ar {
+  text-align: right;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.table-layout {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.csv-textarea {
+  line-height: 1.8rem;
+  @extend .font-size-12px;
+}
+
+.vm-grid {
+  @extend %vm-grid;
+}
+
+.grid {
+  @extend %mod;
+}
+
+.f1 {
+  @extend %f1;
+}
+
+.mod {
+  @extend %mod;
+}

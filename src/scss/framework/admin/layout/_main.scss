@@ -1,0 +1,53 @@
+.main {
+  padding-top: $header-height;
+  margin-left: $sidebar-width;
+}
+
+.main-toolbar {
+  position: relative;
+  background-color: $toolbar-bg;
+  padding: $spacing $spacing-bigger;
+  border-bottom: $toolbar-border-bottom;
+  .breadcrumb {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    right: $spacing-bigger;
+    padding: 0;
+    margin: -10px 0 0;
+    background: none;
+    @extend .font-size-12px;
+  }
+
+  .page-title {
+    @extend .font-size-20px;
+    margin-bottom: 0;
+    color: $title-color;
+    .icon {
+      margin-right: $spacing-small;
+    }
+    small {
+      @extend .font-size-12px;
+      margin-left: $spacing-small;
+      color: $gray-light;
+    }
+  }
+
+  .description {
+    @extend .font-size-12px;
+    margin-top: $spacing-micro;
+    margin-bottom: 0;
+  }
+}
+
+.main-content {
+  padding: $spacing-bigger;
+}
+
+.primary-control {
+  margin-bottom: $spacing-bigger;
+  text-align: right;
+  .btn {
+    margin-left: $spacing-small;
+  }
+}
