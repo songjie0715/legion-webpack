@@ -1,0 +1,25 @@
+.card-header {
+  .card-text {
+    @extend .font-size-12px;
+    color: $gray-lighter;
+  }
+  border-bottom: 1px solid $card-border-color;
+  &.no-border {
+    border-bottom-color: transparent;
+  }
+}
+
+.card-footer {
+  border-top: 1px solid $card-border-color;
+  &.no-border {
+    border-bottom-color: transparent;
+  }
+}
+
+.card-footer,
+.card-header {
+  @include clearfix;
+  .actions {
+    float: right;
+  }
+}
