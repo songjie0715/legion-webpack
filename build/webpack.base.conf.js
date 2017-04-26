@@ -4,45 +4,49 @@ const config = require('../config');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: config.entry,
-    output: {
-        path: path.resolve(__dirname, '../dist'),
-        publicPath: config.build.assetsPublicPath,
-        filename: '[name].js'
-    },
-    resolveLoader: {
-        root: path.join(__dirname, '../node_modules'),
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.vue$/,
-                loader: 'vue'
-            }, {
-                test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules/
-            }, {
-                test: /\.scss$/,
-                loader: 'scss-loader'
-            }, {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'url',
-                query: {
-                    limit: 10000,
-                    name: '[name].[ext]?[hash]'
-                }
-            }
-        ]
-    },
-    vue: {
-        loaders: utils.cssLoaders()
-    },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor-bundle.js'
+	entry: config.entry,
+	output: {
+		path: path.resolve(__dirname, '../dist'),
+		filename: '[name].js'
+	},
+	resolve: {
+		modules: ["node_modules"],
+        alias: {
+		    'helper.js': 'helper.js/build/helper.js'
+        }
+	},
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				loaders: [
+					'babel-loader',
+				],
+				exclude: /node_modules/
+			},
+			{
+				test: /\.(scss|css)$/,
+				loaders: ["style-loader", "css-loader", "sass-loader"]
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			}
+		]
+	},
+    performance: { hints: false },
+	plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+            Tether: 'tether',
+            Highcharts: 'highcharts/highstock',
+            echarts: 'echarts'
         }),
-        new webpack.IgnorePlugin(/vertx/)
-    ]
+		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
+		...config.commonChunks.map(d=>{
+			return new webpack.optimize.CommonsChunkPlugin(d);
+		})
+	]
 };

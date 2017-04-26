@@ -1,0 +1,46 @@
+.tree-list {
+  background: #fff;
+  .tree-list-link {
+    position: relative;
+    display: block;
+    padding: $spacing-small;
+    &:hover {
+      background-color: rgba(0, 0, 0, .05);
+    }
+    cursor: pointer;
+  }
+
+  .tree-list-link {
+    padding-left: $spacing-bigger;
+    &::before {
+      content: "\f10c";
+      font-family: FontAwesome;
+      position: absolute;
+      left: 5px;
+      top: 17px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      line-height: 1;
+      font-size: 12px;
+      text-align: center;
+      color: #ccc;
+      transition: transform 150ms ease
+    }
+  }
+
+  .tree-list-children {
+    margin-left: $spacing-bigger;
+  }
+
+  .tree-group {
+    > .tree-list-link::before {
+      content: "\f054";
+      color: #999;
+    }
+  }
+
+  .tree-active > .tree-list-link::before {
+    transform: rotate(45deg)
+  }
+}

@@ -1,0 +1,85 @@
+$chart-loading-bg: rgba(255, 255, 255, .9) !default;
+$chart-loading-color: #2cba57 !default;
+$chart-loading-size: 20px !default;
+
+.chart-card {
+  overflow: hidden;
+  position: relative;
+  .chart-wrapper {
+    box-sizing: content-box;
+  }
+  .chart-loading {
+    position: absolute;
+    background-color: $chart-loading-bg;
+  }
+  .card-block {
+    position: relative;
+  }
+  .chart-notify {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    @extend .font-size-14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actions {
+    &.disabled {
+      pointer-events: none;
+      opacity: .3;
+    }
+  }
+}
+
+.chart-loading {
+  background: $chart-loading-bg;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  opacity: 1;
+  transition: opacity .3s ease;
+  &.hide {
+    z-index: -1;
+    opacity: 0;
+  }
+  .chart-loading-inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    text-align: center;
+    width: 100px;
+    height: 60px;
+  }
+  .chart-loading-text {
+    line-height: 3em;
+    @extend .font-size-14px;
+  }
+  .chart-loading-bar {
+    animation-duration: .75s;
+    animation-iteration-count: infinite;
+    animation-name: rotate-forever;
+    animation-timing-function: linear;
+    width: $chart-loading-size;
+    height: $chart-loading-size;
+    border: 5px solid $chart-loading-color;
+    border-right-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+  }
+}
+
+@mixin rotate-forever {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
+
+@keyframes rotate-forever { @include rotate-forever; }

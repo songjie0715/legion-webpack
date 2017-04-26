@@ -12,7 +12,7 @@
     @include flyout-box-style(#389bf7, darken(#389bf7, 5%));
   }
   &.alert-warning {
-    @include flyout-box-style(#fc5431, darken(#fc5431, 5%));
+    @include flyout-box-style(#f0ad4e, darken(#f0ad4e, 5%));
   }
   &.alert-danger, &.alert-error {
     @include flyout-box-style(#ed5858, darken(#ed5858, 5%));

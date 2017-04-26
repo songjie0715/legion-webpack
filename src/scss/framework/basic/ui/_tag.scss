@@ -1,0 +1,15 @@
+.tag-main {
+  display: inline-block;
+  padding: 2px $spacing-small;
+  margin-right: $spacing-small;
+  cursor: pointer;
+  background: $main-color;
+  color: white;
+  user-select: none;
+  &:hover {
+    background: darken($main-color, 5%);
+  }
+  &:active {
+    background: darken($main-color, 8%);
+  }
+}

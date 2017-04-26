@@ -1,0 +1,88 @@
+.main {
+  padding-top: $header-height;
+  margin-left: $sidebar-width;
+
+  &.full-height {
+    display: flex;
+    flex-flow: column;
+    .main-content {
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+}
+
+.action-bar {
+  background: $actionbar-bg;
+  border-bottom: 1px solid $actionbar-border-color;
+  @include clearfix;
+  .breadcrumb {
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+.main-toolbar {
+  position: relative;
+  padding: $spacing-big $spacing $spacing-small;
+  //background: $toolbar-bg;
+  //border-bottom: 1px solid $toolbar-border-color;
+  @include clearfix;
+  .breadcrumb {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    right: $spacing-bigger;
+    padding: 0;
+    margin: -10px 0 0;
+    background: none;
+    @extend .font-size-12px;
+    a {
+      color: $breadcrumb-link-color;
+    }
+  }
+
+  .page-title {
+    @extend .font-size-24px;
+    margin-bottom: 0;
+    color: $title-color;
+    .icon {
+      margin-right: $spacing-small;
+    }
+    small {
+      @extend .font-size-12px;
+      margin-left: $spacing-small;
+      color: $gray-light;
+    }
+  }
+
+  .description {
+    @extend .font-size-12px;
+    margin-top: $spacing-micro;
+    margin-bottom: 0;
+    color: $gray-light;
+
+    .text-block {
+      margin-right: $spacing-small;
+    }
+  }
+
+  .primary-control, .primary-actions {
+    float: right;
+    .btn, .pointer {
+      margin-left: $spacing-small;
+    }
+  }
+}
+
+.main-content {
+  position: relative;
+  padding: $spacing $spacing $spacing-bigger;
+
+  > .cover-size {
+    top: $spacing;
+    left: $spacing;
+    right: $spacing;
+    bottom: $spacing-bigger;
+  }
+}

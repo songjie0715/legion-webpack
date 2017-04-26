@@ -1,0 +1,40 @@
+.actions {
+  text-align: right;
+  > a, > .pointer {
+    padding: 0 5px;
+    color: $actions-color;
+    &:hover{
+      color: $actions-hover-color;
+    }
+  }
+}
+
+.dropdown-action {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: $zindex-dropdown;
+    display: none;
+    float: left;
+    min-width: 300px;
+    padding: $spacing;
+    margin: $spacing-micro 0 0; // override default ul
+    font-size: $font-size-base;
+    color: $body-color;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    list-style: none;
+    background-color: $dropdown-bg;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.1);
+  }
+}
+
+.open {
+  > .dropdown-content {
+    display: block;
+  }
+}

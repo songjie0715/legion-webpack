@@ -1,9 +1,36 @@
+[v-cloak] {
+  display: none;
+}
+
 .hidden-scroll {
   overflow: hidden!important;
 }
 
+.hidden {
+  display: none!important;
+  visibility: hidden!important;
+}
+
+.oh-y {
+  overflow-y: hidden;
+}
+.oh-x {
+  overflow-x: hidden;
+}
+.oh {
+  overflow: hidden;
+}
+
 .clearfix {
   @include clearfix;
+}
+
+.pos-a {
+  position: absolute!important;
+}
+
+.pos-r {
+  position: relative!important;
 }
 
 .ac {
@@ -37,7 +64,7 @@
 }
 
 .grid {
-  @extend %mod;
+  @extend %grid;
 }
 
 .f1 {
@@ -46,4 +73,54 @@
 
 .mod {
   @extend %mod;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.max-line-1 {
+  @include max-line($number: 1);
+}
+
+.max-line-2 {
+  @include max-line($number: 2);
+}
+
+.max-line-3 {
+  @include max-line($number: 3);
+}
+
+.limit-height-100 {
+  @include limit-height(100px);
+}
+
+.limit-height-200 {
+  @include limit-height(200px);
+}
+
+.limit-height-300 {
+  @include limit-height(300px);
+}
+
+[disable-control] {
+  pointer-events: none;
+}
+
+[pending] {
+  pointer-events: none;
+  opacity: .5;
+}
+
+.cover-size {
+  position: absolute!important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.word-break {
+  word-break: break-all;
+  word-wrap: break-word;
 }

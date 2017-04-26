@@ -1,0 +1,67 @@
+.card-header {
+  .card-text {
+    @extend .font-size-12px;
+    color: $gray-light;
+  }
+  border-bottom: 1px solid $card-border-color;
+  &.no-border {
+    border-bottom-color: transparent;
+  }
+
+  .page-detail {
+    @extend .font-size-14px;
+  }
+}
+
+.card-footer {
+  border-top: 1px solid $card-border-color;
+  &.no-border {
+    border-bottom-color: transparent;
+  }
+}
+
+.card-footer,
+.card-header {
+  @include clearfix;
+  .actions {
+    float: right;
+  }
+}
+
+// list group in card
+.card > .list-group {
+  .list-group-item {
+    border-left: none;
+    border-right: none;
+    border-color: $card-border-color;
+    &:first-of-type {
+      border-top: none;
+    }
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+.card-tab {
+  .card-header {
+    padding: 0;
+    border-bottom: none;
+    .nav-tabs {
+      background: $card-tab-bg;
+      .nav-item {
+        margin-bottom: -1px;
+      }
+      .nav-link {
+        color: $body-color;
+        border: none;
+        border-radius: 0;
+        padding-top: $card-spacer-y;
+        padding-bottom: $card-spacer-y;
+        &:not(.active):hover {
+          background: $card-tab-hover-bg;
+        }
+      }
+    }
+  }
+}

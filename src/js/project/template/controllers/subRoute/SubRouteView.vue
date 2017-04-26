@@ -23,6 +23,6 @@
 
 <script>
     export default {
-        name: 'SubRouteView'
+        name: 'SubRouterView'
     }
 </script>

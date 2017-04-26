@@ -1,5 +1,10 @@
 .flyout {
   display: none;
+  position: absolute;
+  z-index: 1003;
+  &.show {
+    display: block;
+  }
 }
 
 .flyout-box {
@@ -7,18 +12,13 @@
   box-sizing: border-box;
   background: $flyout-box-bg-color;
   box-shadow: $flyout-box-shadow;
-  border-radius: 3px;
+  border-radius: $flyout-box-radius;
   color: $flyout-box-color;
   .hd {
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    font-size: 1.4rem;
-    color: $flyout-box-hd-color;
-    background: $flyout-box-hd-bg;
+    padding: $flyout-spacer $flyout-spacer 0;
   }
   .bd {
-    padding: 15px 10px 10px;
+    padding: $flyout-spacer;
   }
   .ft {
     padding: 0 10px 15px;

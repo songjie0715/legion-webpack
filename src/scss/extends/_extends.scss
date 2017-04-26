@@ -33,16 +33,16 @@
 }
 
 %f1 {
-  @include flex(1);
+  flex: 1;
 }
 
 %grid {
-  @include display(flex);
-  @include flex-flow(row);
+  display: flex;
+  flex-flow: row;
 }
 
 %vm-grid {
   @extend %grid;
-  @include align-items(center);
-  @include justify-content(center);
+  align-items: center;
+  justify-content: center;
 }

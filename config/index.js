@@ -4,9 +4,12 @@
 const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
+const os = require('os');
 
-const devPort = 9191;
-const productPort = 9192;
+const devPort = 9391;
+const platform = os.platform();
+const manifestBasePath = (platform == 'win32')? 'C:/Users/jabbar/IdeaProjects/': '/Users/jabbar/IdeaProjects/';
+const manifestProjectPath = 'wifipix-wificloud2.0/src/main/webapp/WEB-INF/views/common/inc/';
 
 module.exports = {
     srcDir: './src',
@@ -14,22 +17,27 @@ module.exports = {
     buildDir: './src/build',
 	entry: {
 		template: './src/js/project/template/main.js',
-        vendor: ['vue', 'vuex', 'vue-router', 'es6-promise']
+        vendor: ['./src/js/main.js', 'vue', 'vuex', 'vue-router', 'es6-promise', 'moment', 'jquery']
 	},
-	build: {
-		assetsRoot: path.resolve(__dirname, '../src/build'),
-		assetsSubDirectory: 'js/',
-		assetsPublicPath: `http://localhost:${devPort}/dist/js/`,
-		productionSourceMap: false
-	},
-	dev: {
-		port: devPort,
-		proxyTable: {}
-	},
-	product: {
-		port: productPort
-	},
+	commonChunks: [{
+		name: 'vendor',
+		minChunks: 2,
+		chunks: ['vendor', 'template']
+	}, {
+        minChunks: Infinity,
+        names: ['vendor', 'manifest']
+    }],
+    build: {
+        assetsRoot: path.resolve(__dirname, '../src/build'),
+        assetsSubDirectory: 'js/',
+        productionSourceMap: false
+    },
+    dev: {
+        port: devPort,
+        publicPath: `http://localhost:${devPort}/dist/js/`,
+        proxyTable: {}
+    },
 	manifest: 'rev-manifest.json',
-	jspManifestProd: 'D:/IdeaProjects/wifipix-bi-web/src/main/webapp/WEB-INF/views/common/inc/_manifest_prod.jsp',
-	jspManifestDev: 'D:/IdeaProjects/wifipix-bi-web/src/main/webapp/WEB-INF/views/common/inc/_manifest_dev.jsp'
+    jspManifestProd: `${manifestBasePath}${manifestProjectPath}_manifest_prod.jsp`,
+    jspManifestDev: `${manifestBasePath}${manifestProjectPath}_manifest_dev.jsp`
 };

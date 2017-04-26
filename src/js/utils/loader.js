@@ -2,16 +2,15 @@
  * Created by Yinxiong on 2016/5/4 0004.
  */
 
-import $script from 'scriptjs';
 import Promise from 'bluebird';
-import core from 'src/core';
+import $script from 'scriptjs';
 import paths from '../const/paths';
 import _ from 'lodash';
+import {STATIC_PATH} from '../const/Env';
 
-const prefix = core.STATIC_PATH;
 let cssCache = {};
 
-$script.path(prefix);
+$script.path(STATIC_PATH);
 
 function parsePath(name) {
 	if (!name) {
@@ -71,7 +70,7 @@ export default {
 		let head;
 		let mainCss;
 
-		url = url.indexOf('http') == 0 ? url : (prefix + url);
+		url = url.indexOf('http') == 0 ? url : (STATIC_PATH + url);
 		if( url in cssCache ){
 			return;
 		}

@@ -1,0 +1,12 @@
+.filter-radio-group, .filter-checkbox-group {
+  .form-check {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.filter-group-limit-height {
+  @include limit-height(200px);
+  @include scroll($bg: $filter-group-scroll-bg, $thumbColor: $filter-group-scroll-color);
+}

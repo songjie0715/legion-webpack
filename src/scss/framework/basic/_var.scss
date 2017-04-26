@@ -1,0 +1,108 @@
+$spacing: 1rem !default;
+$spacing-big: $spacing * 2 !default;
+$spacing-small: $spacing * .5 !default;
+$spacing-micro: $spacing * .25 !default;
+$spacing-bigger: $spacing * 3 !default;
+
+$fa-version: '4.7.1' !default;
+
+//response
+$pad: max-width 1025px !default;
+$phone: max-width 641px !default;
+
+$main-color: #00b38a !default;
+
+//header
+$header-height: 59px !default;
+$header-bg: #f8f8f8 !default;
+$header-box-shadow: 0 1px 1px 0 rgba(181, 181, 181, 0.33) !default;
+$header-brand-bg: #1f243a !default;
+$header-brand-color: #f1f2f8 !default;
+$drawer-size: 32px !default;
+
+//sidebar
+$sidebar-bg: #252a40 !default;
+$sidebar-width: 220px !default;
+$sidebar-color: #949494 !default;
+$sidebar-active-bg: $main-color !default;
+$sidebar-active-color: white !default;
+$sidebar-category-color: #76798c !default;
+$sidebar-subItem-color: #b8b8b8 !default;
+$sidebar-subItem-bg: #1b1f30 !default;
+$sidebar-openMenu-bg: #202438 !default;
+$sidebar-openMenu-border-color: $main-color !default;
+$sidebar-openMenu-border-width: 3px !default;
+$sidebar-icon-width: 2rem !default;
+
+
+//actionsbar
+$actionbar-bg: #fff !default;
+$actionbar-border-color: rgba(0,0,0,.07) !default;
+
+//toolbar
+$toolbar-bg: #fcfcfc !default;
+$toolbar-border-color: rgba(0,0,0,.07) !default;
+$title-color: #5b5b60 !default;
+
+//bootstrap;
+$enable-transitions: true !default;
+
+$font-size-base: .875rem !default;
+$body-bg: #F0F3F4 !default;
+$body-color: #56565d !default;
+$font-family-base: Hiragino Sans GB, 'Microsoft YaHei', '微软雅黑' !default;
+
+$component-active-bg: $main-color!default;
+
+//link
+$link-hover-decoration: none !default;
+
+//breadcrumb
+$breadcrumb-bg: none !default;
+$breadcrumb-link-color: #848484 !default;
+$breadcrumb-active-color: #aaa !default;
+
+//form
+$input-bg-disabled: #f9f9f9 !default;
+//$input-padding-x: .6rem !default;
+//$input-padding-y: .3rem !default;
+
+//card
+$card-border-radius: 2px !default;
+$card-border-width: 1px !default;
+$card-border-color: rgba(0,0,0,.07) !default;
+$card-cap-bg: transparent !default;
+
+
+//nav
+$nav-tabs-active-link-hover-bg: #fff !default;
+$card-tab-bg: #E6E8E8 !default;
+$card-tab-hover-bg: darken($card-tab-bg, 3%) !default;
+$nav-pills-hover-bg: #eaeaea !default;
+
+
+$table-border-width: .5px !default;
+$table-border-color: #e2e2e4 !default;
+
+//actions color
+$actions-color: #999;
+$actions-hover-color: $main-color !default;
+
+//flyout
+$flyout-box-border-color: #eaeaea !default;
+$flyout-box-arrow-border-color: $flyout-box-border-color !default;
+$flyout-box-shadow: 0 1px 3px 0 rgba(80, 80, 80, 0.09) !default;
+
+//nav
+$nav-pills-active-link-bg: $main-color !default;
+
+//highcharts
+$colors: #47acb1 #f26522 #f9aa7b #a5a8aa #676766 #add5d7 #ffe8af #ffcd34 !default;
+$background-color: transparent !default;
+$neutral-color-10: #f3f3f3 !default;
+
+//air-datepicker
+$datepickerZIndex: 1060 !default;
+
+//nprogress:
+$nprogress-bar-bg: #00b38a !default;

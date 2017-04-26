@@ -1,6 +1,7 @@
 /* global Tether */
 import $ from 'jquery';
-import Util from './util'
+import Util from './util';
+import Tether from 'tether';
 
 
 /**
@@ -9,14 +10,6 @@ import Util from './util'
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-/**
- * Check for Tether dependency
- * Tether - http://github.hubspot.com/tether/
- */
-if (window.Tether === undefined) {
-  throw new Error('Bootstrap tooltips require Tether (http://github.hubspot.com/tether/)')
-}
-
 
 /**
  * ------------------------------------------------------------------------

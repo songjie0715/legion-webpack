@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>WIFIPIX 组件展示</title>
+    <style>
+        header {
+            border-bottom: 1px solid #959494;
+        }
+        header:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .p, .row {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="" alt="" class="logo"><h1>组件展示</h1>
+        </div>
+    </header>
+
+    <article>
+        <section class="icon container" id="icon">
+            <h2><a href="#icon">图标</a></h2>
+        </section>
+        <section class="button container" id="button">
+            <h2><a href="#button">按钮组件</a></h2>
+            <div class="p">
+                <button class="btn btn-long btn-outline-primary btn-square">按钮</button>
+                <button class="btn btn-long btn-outline-primary btn-radius">按钮</button>
+                <button class="btn btn-long btn-primary">按钮</button>
+            </div>
+            <div class="p">
+                <button class="btn btn-long btn-primary">按钮</button>
+                <button class="btn btn-long btn-success">按钮</button>
+                <button class="btn btn-long btn-warning">按钮</button>
+                <button class="btn btn-long btn-danger">按钮</button>
+                <button class="btn btn-long btn-secondary">按钮</button>
+                <button class="btn btn-long btn-info">按钮</button>
+            </div>
+
+        </section>
+
+        <section class="form container" id="form">
+            <h2><a href="#form">表单组件</a></h2>
+            <h3><a href="#input">Input组件</a></h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="form-control" type="text" placeholder="北京无限向溯科技有限公司">
+                </div>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" value="北京无限向溯科技有限公司">
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="北京无限向溯科技有限公司">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="form-control" type="text" placeholder="北京无限向溯科技有限公司" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group has-success">
+                    <label class="col-form-label" for="inputSuccess1">输入成功</label>
+                    <input type="text" class="form-control form-control-success" id="inputSuccess1">
+                    <!--<div class="form-control-feedback">Success! You've done it.</div>-->
+                    <!--<small class="form-text text-muted">Example help text that remains unchanged.</small>-->
+                </div>
+                <div class="col-md-4 form-group has-warning">
+                    <label class="col-form-label" for="inputWarning1">输入警告</label>
+                    <input type="text" class="form-control form-control-warning" id="inputWarning1">
+                    <!--<div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>-->
+                    <!--<small class="form-text text-muted">Example help text that remains unchanged.</small>-->
+                </div>
+                <div class="col-md-4 form-group has-danger">
+                    <label class="col-form-label" for="inputWarning1">输入警告</label>
+                    <input type="text" class="form-control form-control-danger" id="inputWarning1">
+                    <!--<div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>-->
+                    <!--<small class="form-text text-muted">Example help text that remains unchanged.</small>-->
+                </div>
+            </div>
+        </section>
+        <section class="dropdown container" id="dropdown">
+            <h2><a href="#dropdown">下拉菜单</a></h2>
+            <div class="p">
+                <div class="btn-group">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        下拉
+                        <!--<i class="fa fa-chevron-down"></i>-->
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" type="button">
+                        分离下拉
+                    </button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">下拉开关</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="progress-section container" id="progress-section">
+            <h2><a href="#progress-section">进度条</a></h2>
+            <div class="text-xs-center" id="example-caption-1">加载中&hellip; 50%</div>
+            <progress class="progress border-round" value="50" max="100" aria-describedby="example-caption-1">
+                <div class="progress">
+                    <span class="progress-bar border-round" style="width: 25%;"></span>
+                </div>
+            </progress>
+        </section>
+    </article>
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+</body>
+</html>
