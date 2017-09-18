@@ -1,0 +1,42 @@
+$bgW: #fff;
+
+.freeType{
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	background: $bgW;
+	li{
+		position: relative;
+		-webkit-box-flex:1;
+		-moz-box-flex:1;
+		box-flex:1;
+		height:40px;
+		line-height:40px;
+		font-size:1.6rem;
+		color:#999;
+	    text-align: center;
+    	border-bottom: solid 1px #ddd;
+    	span{
+    		position: absolute;
+    		left:50%;
+    		bottom:-1px;
+		    margin-left: -23px;
+		    width: 46px;
+		    height: 2px;  
+			border-bottom:solid 2px transparent;
+    	}
+    	&.on{
+			color:#10c1ae;
+			font-weight:bold;
+			span{
+				border-bottom:solid 2px #10c1ae;
+			}
+    	}
+	}
+}
+.boy{
+	//display:none;
+}
+.ul-mod li span.name{
+	height:32px !important;
+}

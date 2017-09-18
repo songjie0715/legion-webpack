@@ -40,13 +40,16 @@ module.exports = {
     distDir: './dist',
     buildDir: './src/build',
 	entry: {
-		template: './src/js/project/template/main.js',
-        vendor: ['./src/js/main.js', 'vue', 'vuex', 'vue-router', 'es6-promise', 'moment', 'jquery']
+        vendor: ['vue', 'jquery'],
+        templateIndex: './src/js/wxV2/controller/templateIndex',
+        templateChannel: './src/js/wxV2/controller/templateChannel',
+        bookDetail: './src/js/wxV2/controller/bookDetail',
+        chapterIndex: './src/js/wxV2/controller/chapterIndex'
 	},
 	commonChunks: [{
 		name: 'vendor',
 		minChunks: 2,
-		chunks: ['vendor', 'template']
+		chunks: ['vendor', 'templateIndex']
 	}, {
         minChunks: Infinity,
         names: ['vendor', 'manifest']
@@ -57,9 +60,9 @@ module.exports = {
         productionSourceMap: false
     },
     dev: {
-        ip: localIp,
-        port: devPort,
-        publicPath: `http://${localIp}:${devPort}/dist/js/`,
+        ip: '10.1.23.14',
+        port: '9391',
+        publicPath: `http://10.1.23.14:9391/dist/js/`,
         proxyTable: {}
     },
 	manifest: 'rev-manifest.json',

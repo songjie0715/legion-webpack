@@ -68,7 +68,7 @@ function readJs(isProduction){
 }
 
 gulp.task('sass', function () {
-    return gulp.src(config.srcDir + '/scss/*.scss')
+    return gulp.src(config.srcDir + '/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed',

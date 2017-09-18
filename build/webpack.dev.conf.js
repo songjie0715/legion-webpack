@@ -6,9 +6,9 @@ const _ = require('lodash');
 
 _.forEach(baseWebpackConfig.entry, (list, name)=>{
     if(typeof list == 'string'){
-        baseWebpackConfig.entry[name] = [baseWebpackConfig.entry[name], `webpack-hot-middleware/client`]
+        baseWebpackConfig.entry[name] = [baseWebpackConfig.entry[name], `webpack-hot-middleware/client?path=//10.1.23.14:9391/__webpack_hmr`]
     } else {
-        baseWebpackConfig.entry[name] = baseWebpackConfig.entry[name].concat([`webpack-hot-middleware/client`])
+        baseWebpackConfig.entry[name] = baseWebpackConfig.entry[name].concat([`webpack-hot-middleware/client?path=//10.1.23.14:9391/__webpack_hmr`])
     }
 });
 

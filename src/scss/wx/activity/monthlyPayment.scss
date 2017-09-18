@@ -1,0 +1,164 @@
+$browser-default-font-size: 20px !default;//变量的值可以根据自己需求定义
+$path: '../../../img/wx/laikan/activity/monthPay';
+
+
+body{
+  background-color: #ffc000;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: "PingHei","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+}
+@function pxTorem($n){//$n为需要转换的字号
+  @return $n / 20;
+}
+header {
+  font-size: pxTorem(12rem);
+  img{
+    width: 100%;
+  }
+}
+section{
+  .tip-text{
+    margin: pxTorem(10rem) auto 0;
+    padding-top: pxTorem(16rem);
+    width: pxTorem(354rem);
+    height:pxTorem(89rem) ;
+    background: url('#{$path}/czby_04.png') no-repeat;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    overflow: hidden;
+  }
+  .text-p{
+    margin-left: pxTorem(73rem);
+    color:#fff;
+    font-size: pxTorem(14rem);
+    p{
+      line-height: pxTorem(20rem);
+      &.yellow{
+        color: #ffc000;
+      }
+    }
+  }
+  .list{
+    .tit-h{
+      margin: pxTorem(18rem) 0 0 pxTorem(27.5rem);
+      background: url('#{$path}/czby_08.png') repeat-x;
+      -webkit-background-size: auto 50%;
+      background-size: auto 50%;
+      height: pxTorem(32rem);
+      line-height: pxTorem(32rem);
+      h3{
+        font-size: pxTorem(16rem);
+        line-height: pxTorem(16rem);
+        background:#ffc000;
+        width: pxTorem(73rem);
+        color: #eb2b32;
+        font-weight: bold;
+      }
+    }
+    ul{
+      padding: pxTorem(15rem) pxTorem(15rem) pxTorem(29rem);
+      li{
+        margin-bottom: pxTorem(18rem);
+        overflow: hidden;
+        .price{
+          width: pxTorem(54.5rem);
+          height: pxTorem(58rem);
+          line-height: pxTorem(58rem);
+          text-align: center;
+          background: url('#{$path}/czby_12.png') no-repeat;
+          -webkit-background-size: auto 100%;
+          background-size: auto 100%;
+          font-size: pxTorem(16rem);
+          font-weight: bold;
+          color: #ffe493;
+          float: left;
+        }
+        .item{
+          float: right;
+          width: 100%;
+          display: inline-block;
+          margin-left: -(pxTorem(54.5rem));
+          padding-left: pxTorem(54.5rem);
+          .inner{
+            margin-left: pxTorem(25rem);
+            padding: pxTorem(19rem) 0 pxTorem(18rem) 0;
+            border-bottom: 2px dashed #eb2b32;
+          }
+          p{
+            background: url('#{$path}/czby_15.png') no-repeat;
+            height: pxTorem(32.5rem);
+            padding-left: pxTorem(39rem);
+            width: auto;
+            -webkit-background-size: auto 100%;
+            background-size: auto 100%;
+            font-size: pxTorem(16rem);
+            line-height: pxTorem(32.5rem);
+            color: #eb2b32;
+            display: inline-block;
+            font-weight: bold;
+            text-shadow:5px 2px 6px #ffe300;
+          }
+          a.btn{
+            font-size: pxTorem(16rem);
+            padding: pxTorem(9rem) 0;
+            width: pxTorem(80rem);
+            text-align: center;
+            color: #ffffff;
+            background:#eb2b32 ;
+            display: inline-block;
+            float: right;
+            border-radius: 6%;
+            &:hover{
+              background: #a21a1b;
+            }
+            &.deongaree{
+              background: #711fce;
+              &:hover{
+                background: #8f23fb;
+              }
+            }
+            &.finish{
+              background: #dcd8d8;
+              cursor: no-drop;
+            }
+          }
+        }
+      }
+    }
+  }
+  .btnclear{
+    padding:pxTorem(30rem) pxTorem(12.5rem);
+    .btn-max{
+      display: block;
+      text-align: center;
+      color: #ffffff;
+      width: 100%;
+      padding: pxTorem(10rem) 0;
+      border-radius: 5px;
+      background:#eb2b32 ;
+      font-size: pxTorem(16rem);
+    }
+  }
+  .desc-info{
+    margin:pxTorem(5rem) pxTorem(12.5rem)  pxTorem(30rem);
+    background: url('#{$path}/czby_22.png') no-repeat;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    height: pxTorem(265rem);
+    width: pxTorem(350rem);
+    padding-top: pxTorem(50rem);
+    padding-left: pxTorem(12.5rem);
+    padding-right: pxTorem(12.5rem);
+    font-size: pxTorem(14rem);
+    color: #ffffff;
+    line-height: pxTorem(21rem);
+    p{
+      margin-top: pxTorem(12.5rem);
+      &:nth-child(1){
+        margin-top: 0;
+      }
+    }
+  }
+}

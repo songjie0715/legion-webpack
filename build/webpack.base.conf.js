@@ -12,7 +12,7 @@ module.exports = {
 	resolve: {
 		modules: ["node_modules"],
         alias: {
-		    'helper.js': 'helper.js/build/helper.js'
+		    'vue': 'vue/dist/vue.min.js'
         }
 	},
 	module: {

@@ -1,0 +1,184 @@
+$col: #e14d31;
+.colLine{
+  color: $col;
+  border: 1px solid $col;
+}
+.ma_bg, body{
+  background: none;}
+.demo .font-change a{
+  border: 1px solid $col;
+}
+.wline {
+  border-bottom: 1px solid $col;
+}
+.chapter-mod-list li a {
+  @extend .colLine;
+}
+.day-new-status .chapter-mod-list li a, .day-status .chapter-mod-list li a {
+  @extend .colLine;
+}
+.user_level span em.firstPay{
+  font-style:normal;
+  color: $col;
+}
+.chapter-buy{
+  border-bottom: solid 1px $col;
+  h1{
+    margin-bottom:0;
+  }
+  .firstPayNote{
+    padding:15px 0 35px;
+    text-align:center;width:192px;
+  }
+}
+.chapter-buy-ul li{
+  border-color: $col;
+  &:first-child{
+    background:$col;
+    a{
+      color: #fff;
+    }
+  }
+  &:last-child{
+    background:none;
+    a{
+      color:$col;
+    }
+  }
+}
+
+.dialog.dialog-buy .buy-chapters .buy-num.active{
+  background: $col;
+  border-color: $col;
+}
+.dialog .action .button{
+  background:$col;
+}
+.chapter-auto span.on {
+  background: url("../../../img/spread/zhwnl/chanpterBuyAutoRed.png") no-repeat;
+  background-size: 14px 14px;
+  vertical-align: -6px !important;
+}
+.dialog.dialog-buy .go-reward{
+  color:$col;
+}
+.dialog.dialog-buy .go-reward::after{
+  background: url("../../../img/spread/zhwnl/bg-book-detail-new.png") no-repeat;
+}
+.arrow-right, .dialog.dialog-buy .go-reward::after, .dialog-reward .dialog-reward-surplus .recharge::after {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background: url("../../../img/spread/zhwnl/bg-book-detail-new.png") 0 -15px no-repeat;
+  -webkit-background-size: auto 60px;
+  background-size: auto 60px;
+  vertical-align: -2px;
+  margin-left: 7px;
+}
+.dialog.dialog-buy .loading-price span{
+  border-top: 1px solid $col;
+}
+.linearBtn .km-handle-area a{
+  background:$col;
+}
+.linearBtn span{
+  background: url("../../../img/spread/zhwnl/icon.png") no-repeat;
+}
+.linearBtn span{
+    width: 50px;
+    height: 50px;
+    background-position: 0 -49px;
+    -webkit-background-size: 50px auto;
+    background-size: 50px auto;
+}
+.recommendMoreTit{
+  margin-top:40px;
+  padding-left:1.8rem;
+  height:50px;
+  line-height:50px;
+  font-size: 1.6rem;
+  color: #333;
+  background: #f8f8f8;
+  span{
+    margin-right:6px;
+    display:inline-block;
+    width:3px;
+    height:16px;
+    background: $col;
+    border-radius:3px;
+    vertical-align: -1px;
+  }
+}
+.recommendMore{
+  padding-left: 1.5rem;
+  background: #fff;
+  overflow: hidden;
+  a{
+    display: block;
+    border-top:solid 1px #ddd;
+    &:first-child{
+      border-top:none;
+    }
+    h2{
+      padding: 1.2rem 1.5rem 1rem 0;
+      font-size: 1.6rem;
+      line-height: 2.1rem;
+      color: #333;
+    }
+    ul{
+      margin: 0 1.5rem 1.5rem 0;
+      overflow: hidden;
+      li{
+        margin-right: 6%;
+        width: 29.3333333333333333333%;
+        float: left;
+        img{
+          width: 100%;
+          display: block;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+.loading{
+  border: 10px solid $col;
+}
+.loading:after{
+  box-shadow: rgba(173,43,19,.6) -4px -5px 3px -3px;
+}
+.shorteMore{
+  padding-top:20px;
+  overflow:hidden;
+  a{
+    display:block;
+    width:280px;
+    margin:0 auto;
+    img{
+      width:100%;
+    }
+  }
+}
+.icon-success {
+  &::before {
+    content: '\2713';	// heavy check mark - checkmark - dingbats
+    color: $col;
+  }
+}
+.txtbox-item h3 {
+  padding-left: 1.5rem;
+  background: #fff;
+  border-bottom:solid 1px #eee;
+}
+.km-day{
+  .wx_box{
+    transform: translate(0px, -49px);
+  }
+}
+.km-night{
+  .wx_box{
+    transform: translate(0px, -49px);
+  }
+}
