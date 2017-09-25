@@ -27,7 +27,7 @@ export default Vue.extend({
 
         this.downloadLink = $(this.$el).find('.link');
 
-        lkModal.checkEqui(this.downloadLink, 'http://laikan.motie.com/m/laikan-android' ,'http://a.app.qq.com/o/simple.jsp?pkgname=com.laikan.reader', this.iswechat, ()=>{
+        lkModal.checkEqui(this.downloadLink, 'http://lkoss.motieimg.com/laikan_wx/laikan-free.apk' ,'http://a.app.qq.com/o/simple.jsp?pkgname=com.laikan.reader', this.iswechat, ()=>{
             history.pushState({link: 'download'},'','/wx/links/up/download#free');
         })
 

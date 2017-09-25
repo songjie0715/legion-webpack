@@ -8,7 +8,7 @@ import newUserPackageDialog from "../components/newUserPackageDialog";
 import tipMod from "../components/tipMod";
 import newUserPackageMod from "../components/newUserPackageMod";
 import footerComponent from "../components/footer-component";
-import readActionComponent from "../components/read-action-component";
+import readActionComponent from "../vueComponent/read-action-component.vue";
 import core from "../core/core";
 
 var userId = window['userId'];
@@ -17,9 +17,11 @@ var isNewUser = window['isNewUser'];
 var isFreeActivity = window['isFreeActivity'];
 var qrcode = window['qrcode'];
 var userCreateTime = window['userCreateTime'];
-var bookid = window['bookid'];
-var chapterid = window['chapterid'];
+var bookId = window['bookid'];
+var chapterId = window['chapterid'];
 var nextChapterid = window['nextChapterid'];
+var prevChapterid = window['prevChapterId'];
+var autofeed = window['autofeed'];
 
 export default new Vue({
     el: '#app',
@@ -44,7 +46,8 @@ export default new Vue({
         showTap: 0,
         lastTap: 0,
         flag: false,
-        target: ''
+        target: '',
+        autofeed: autofeed
     },
     mounted(){
         if( history.state && history.state.page == '1' ){ history.back(); }
@@ -88,7 +91,7 @@ export default new Vue({
 
         $('.shadow').click(function(){
             lkModal.setCookie('isAndriodDownloadTip', new Date().getDate(), 365);
-            sendMessage(userId, 'WX-BR-NEWCOMER-POPS-CLOSE', '[{"bookid": "'+ bookid +'"]');
+            sendMessage(userId, 'WX-BR-NEWCOMER-POPS-CLOSE', '[{"bookid": "'+ bookId +'"]');
             newUserPackageD.hide();
             self.$refs['new-user-package'].show();
         });
@@ -159,7 +162,7 @@ export default new Vue({
                     var status = data.status;
                     switch (status){
                         case 0:
-                            location.href = core.website_DOMAIN +'/accounts/login?backUrl=/wx/book/' +bookid + '/' + chapterid;
+                            location.href = core.website_DOMAIN +'/accounts/login?backUrl=/wx/book/' +bookId + '/' + chapterId;
                             break;
                         case 1:
                             localStorage.setItem('isHaveUserPackage', true);
@@ -212,10 +215,12 @@ export default new Vue({
             let defaultSize = Number(lkModal.getCookie('fontSize'));
             let elm = $(this.$el).find('.intro');
 
-            console.log(defaultSize)
-
             redMod == 'false' ? (this.readMod = false): (this.readMod = true);
-            if(defaultSize != NaN) elm.css({'fontSize' : defaultSize+'rem','line-height':defaultSize*1.8+'rem'});
+            if(defaultSize){
+                elm.css({'fontSize' : defaultSize+'rem','line-height':defaultSize*1.8+'rem'})
+            } else {
+                elm.css({'fontSize' : '1.6rem','line-height':1.6*1.8+'rem'})
+            };
         },
         showReadAction(event){
 
