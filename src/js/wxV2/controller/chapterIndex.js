@@ -8,6 +8,8 @@ import newUserPackageDialog from "../components/newUserPackageDialog";
 import tipMod from "../components/tipMod";
 import newUserPackageMod from "../components/newUserPackageMod";
 import footerComponent from "../components/footer-component";
+import appFreeDownloadComponent from "../components/app-free-download-component";
+import appDownloadChapterComponent from "../components/app-download-chapter-component";
 import readActionComponent from "../vueComponent/read-action-component.vue";
 import core from "../core/core";
 
@@ -29,7 +31,9 @@ export default new Vue({
         'tip-mod': tipMod,
         'new-user-package-mod': newUserPackageMod,
         'footer-component': footerComponent,
-        'read-action': readActionComponent
+        'read-action': readActionComponent,
+        appFreeDownloadComponent,
+        'app-download-chapter': appDownloadChapterComponent
     },
     data:{
         isCollectTipShow: false,
@@ -47,7 +51,8 @@ export default new Vue({
         lastTap: 0,
         flag: false,
         target: '',
-        autofeed: autofeed
+        autofeed: autofeed,
+        isInShelf: false
     },
     mounted(){
         if( history.state && history.state.page == '1' ){ history.back(); }
@@ -56,8 +61,8 @@ export default new Vue({
         var self = this;
         var isWechat = iswechat;
         //取当前用户是否为新用户
-        // var isNewUser = isNewUser || false;
-        let isNewUser = true;
+        var isNewUser = isNewUser || false;
+        // let isNewUser = true;
         var href = location.href;
         var isCollectTipShow = localStorage.getItem('isCollectTipShow');
         var freeActivity = isFreeActivity;
@@ -98,6 +103,9 @@ export default new Vue({
 
         //获取缓存状态(阅读模式)
         this.getChangedMod();
+
+        this.chargeInShelf();
+
 
         //如果是老用户，则返回
         if( !isNewUser && !lkModal.getCookie('isAndriodDownloadTip') ){
@@ -210,6 +218,30 @@ export default new Vue({
             this.readMod = !this.readMod;
             lkModal.setCookie('readMod', this.readMod);
         },
+        chargeInShelf(){
+            $.get(core.website_DOMAIN + '/ajax/book/' + bookId + '/favorite', data=>{
+                if (data.status == 0) {
+                    this.isInShelf = true;
+                }
+            });
+        },
+        addToShelf(){
+            $.ajax({
+                type: 'POST',
+                data: {'favor': 0, 'backUrl': '/book/' + bookId + '/' + chapterId},
+                url: core.website_DOMAIN + '/ajax/book/' + bookId + '/favorite',
+                //dataType:'json',
+                success: data => {
+                    if (data != null && data.url != null && typeof (data.url) != 'undefined') {
+                        location.href = data.url;
+                        return;
+                    }
+                    if (data.status == 0) {
+                        this.isInShelf = true;
+                    }
+                }
+            });
+        },
         getChangedMod(){
             let redMod = lkModal.getCookie('readMod');
             let defaultSize = Number(lkModal.getCookie('fontSize'));
@@ -274,6 +306,10 @@ export default new Vue({
                 this.target.removeEventListener('touchend', this.stopTouchendPropagation, true);
                 this.flag = false;
             }, 50);
+        },
+        stringify(content){
+
+            return JSON.stringify(content);
         }
     }
 });

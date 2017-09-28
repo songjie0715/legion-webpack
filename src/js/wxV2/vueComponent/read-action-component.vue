@@ -25,7 +25,7 @@
                     <font-tipover-component @changefontStatus="changefont"  :must-hide="isAllHide" ref="fontShow" v-cloak></font-tipover-component>
                 </li>
                 <li id="fontBulb" class="collect-data-point" :class="{nightStatus: !mod}" @touchend="changeMod()" :data-user-id="userId" data-collect-id="WX-BR-NAVI-BTN-DAYNIGHT"><a href="javascript:;"><img :src=" mod ? 'http://lkres.motieimg.com/StaticResources/public_html/wings/_resources/img/wx/laikan/chapter-menu_status.png' : 'http://lkres.motieimg.com/StaticResources/public_html/wings/_resources/img/wx/laikan/chapter-menu_status-on-new.png'"><span v-if="mod">白天</span><span v-else>黑夜</span></a></li>
-                <li><a class="status collect-data-point" :href="'/wx/book/'+ bookid +'/catalogs?chapterId='+ chapterid " data-collect-id="WX-BR-NAVI-BTN-CONTENTS"><img src="http://lkres.motieimg.com/StaticResources/public_html/wings/_resources/img/wx/laikan/chapter-menu_list.png"><span>目录</span></a></li>
+                <li><a class="status collect-data-point" :href="'/wx/book/'+ bookId +'/catalogs?chapterId='+ chapterId " data-collect-id="WX-BR-NAVI-BTN-CONTENTS"><img src="http://lkres.motieimg.com/StaticResources/public_html/wings/_resources/img/wx/laikan/chapter-menu_list.png"><span>目录</span></a></li>
                 <li><a class="status collect-data-point" @touchend="chargeNextChapter()" data-collect-id="WX-BR-NAVI-BTN-NEXT"><img src="http://lkres.motieimg.com/StaticResources/public_html/wings/_resources/img/wx/laikan/chapter-menu_next.png"><span>下一章</span></a></li>
             </ul>
         </div>
@@ -43,8 +43,9 @@
         data(){
             return {
                 isAllHide: false,
-                mod: true
-
+                mod: true,
+                bookid: 0,
+                chapterid: 0
             }
         },
         components: {
@@ -73,7 +74,8 @@
 
         },
         mounted(){
-
+            this.bookId = bookid;
+            this.chapterId = chapterid;
             this.downloadLink = $(this.$el).find('.link');
 
             lkModal.checkEqui(this.downloadLink, 'http://lkoss.motieimg.com/laikan_android/laikan.apk' ,'http://a.app.qq.com/o/simple.jsp?pkgname=com.laikan.reader', iswechat, ()=>{

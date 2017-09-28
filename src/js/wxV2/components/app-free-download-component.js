@@ -17,10 +17,8 @@ export default Vue.extend({
         datamsg: String,
         bookid: String
     },
-    template: `<div class="app-test" style="position:absolute; z-index: 1; width: 100%; height: 32px;">
-                    <div class="activity-free" @touchend="addToFreeDownload()" v-cloak>
-                        <a class="link collect-data-point" href="javascript:;" :data-user-id="userid" :data-collect-id="position" :data-collect-data="datamsg">去APP免费阅读本书 &gt;</a>
-                    </div>
+    template: `<div class="app-test">
+                    <slot name="inner"></slot>
                 </div>
                 `,
     mounted(){
