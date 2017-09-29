@@ -44,8 +44,8 @@
             return {
                 isAllHide: false,
                 mod: true,
-                bookid: 0,
-                chapterid: 0
+                bookId: 0,
+                chapterId: 0
             }
         },
         components: {

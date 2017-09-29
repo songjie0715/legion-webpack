@@ -19,8 +19,8 @@ var isNewUser = window['isNewUser'];
 var isFreeActivity = window['isFreeActivity'];
 var qrcode = window['qrcode'];
 var userCreateTime = window['userCreateTime'];
-var bookId = window['bookid'];
-var chapterId = window['chapterid'];
+var bookid = window['bookid'];
+var chapterid = window['chapterid'];
 var nextChapterid = window['nextChapterid'];
 var prevChapterid = window['prevChapterId'];
 var autofeed = window['autofeed'];
@@ -96,7 +96,7 @@ export default new Vue({
 
         $('.shadow').click(function(){
             lkModal.setCookie('isAndriodDownloadTip', new Date().getDate(), 365);
-            sendMessage(userId, 'WX-BR-NEWCOMER-POPS-CLOSE', '[{"bookid": "'+ bookId +'"]');
+            sendMessage(userId, 'WX-BR-NEWCOMER-POPS-CLOSE', '[{"bookid": "'+ bookid +'"]');
             newUserPackageD.hide();
             self.$refs['new-user-package'].show();
         });
@@ -170,7 +170,7 @@ export default new Vue({
                     var status = data.status;
                     switch (status){
                         case 0:
-                            location.href = core.website_DOMAIN +'/accounts/login?backUrl=/wx/book/' +bookId + '/' + chapterId;
+                            location.href = core.website_DOMAIN +'/accounts/login?backUrl=/wx/book/' +bookid + '/' + chapterid;
                             break;
                         case 1:
                             localStorage.setItem('isHaveUserPackage', true);
@@ -219,7 +219,7 @@ export default new Vue({
             lkModal.setCookie('readMod', this.readMod);
         },
         chargeInShelf(){
-            $.get(core.website_DOMAIN + '/ajax/book/' + bookId + '/favorite', data=>{
+            $.get(core.website_DOMAIN + '/ajax/book/' + bookid + '/favorite', data=>{
                 if (data.status == 0) {
                     this.isInShelf = true;
                 }
@@ -228,8 +228,8 @@ export default new Vue({
         addToShelf(){
             $.ajax({
                 type: 'POST',
-                data: {'favor': 0, 'backUrl': '/book/' + bookId + '/' + chapterId},
-                url: core.website_DOMAIN + '/ajax/book/' + bookId + '/favorite',
+                data: {'favor': 0, 'backUrl': '/book/' + bookid + '/' + chapterid},
+                url: core.website_DOMAIN + '/ajax/book/' + bookid + '/favorite',
                 //dataType:'json',
                 success: data => {
                     if (data != null && data.url != null && typeof (data.url) != 'undefined') {
@@ -308,7 +308,6 @@ export default new Vue({
             }, 50);
         },
         stringify(content){
-
             return JSON.stringify(content);
         }
     }

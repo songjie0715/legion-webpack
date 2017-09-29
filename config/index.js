@@ -44,7 +44,8 @@ module.exports = {
         templateIndex: './src/js/wxV2/controller/templateIndex',
         templateChannel: './src/js/wxV2/controller/templateChannel',
         bookDetail: './src/js/wxV2/controller/bookDetail',
-        chapterIndex: './src/js/wxV2/controller/chapterIndex'
+        chapterIndex: './src/js/wxV2/controller/chapterIndex',
+        chapterList: './src/js/wxV2/controller/chapterList'
 	},
 	commonChunks: [{
 		name: 'vendor',

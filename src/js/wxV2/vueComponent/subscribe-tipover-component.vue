@@ -4,7 +4,7 @@
 
 <template>
     <tip-over ref="subscribeTipOver">
-        <div slot="content" class="chapterAuto" :class=" isAutoFeed ? 'on' : '' " bookid="6109"><label @touchend="autoBuy()">自动购买下一章<input type="hidden" name="bookId" value="6109"></label></div>
+        <div slot="content" class="chapterAuto" :class=" isAutoFeed ? 'on' : '' "><label @touchend="autoBuy()">自动购买下一章<input type="hidden" name="bookId" value="6109"></label></div>
     </tip-over>
 </template>
 
@@ -53,7 +53,7 @@
                 $.ajax({
                     type:'POST',
                     url : '/ajax/i/autofeed',
-                    data :  {"bookId" : bookId,"backUrl":'/book/' + bookId + '/' + chapterId},
+                    data :  {"bookId" : bookid,"backUrl":'/book/' + bookid + '/' + chapterid},
                     dataType : 'json'
                 }).then(function (result) {
                     if(result.status == 1){
